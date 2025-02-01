@@ -10,13 +10,14 @@ bot = Bot(
     token=BOT_TOKEN,
     default=DefaultBotProperties(parse_mode="HTML")
 )
-#storage = MemoryStorage()  # Используем память для хранения состояний
+
 dp = Dispatcher(storage=MemoryStorage())
 
 async def setup_commands(bot: Bot):
     commands = [
         BotCommand(command="start", description="Начать работу"),
         BotCommand(command="admin", description="Админская панель"),
+        BotCommand(command="feedback", description="Оставить отзыв"),
     ]
     await bot.set_my_commands(commands)
 
